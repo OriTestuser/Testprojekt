@@ -1,0 +1,33 @@
+<button routerLink="/mainLobby" class="mainLobby_button">
+  <h3>Back to Main Lobby</h3>
+</button>
+<div class="searchUser-container">
+  <h2>searchUser</h2>
+
+  <form (ngSubmit)="onSubmit()" #userFrom="ngForm">
+    <label for="email">Email</label><br>
+    <input type="text"
+           class="form-control"
+           id="email"
+           name="email"
+           placeholder="Enter email address"
+           [(ngModel)]="email"
+    >
+    <br>
+    <button type="submit"
+            class="btn btn-info">
+      <h3>Search</h3>
+    </button>
+
+  </form>
+  <form class="profile">
+    <div *ngIf="searchUserProfile.email!=null">
+  <div>Name: {{searchUserProfile.firstName}} {{searchUserProfile.lastName}}</div>
+  <div>Points: {{searchUserProfile.points}}</div>
+  <button class="profile_button" (click)="getUserProfile()" routerLink="/profileMain">Profile</button>
+    </div>
+  </form>
+<!--  <div *ngIf="searchUserProfile?.length == 0 && email">-->
+<!--    {{email}} cannot be found.-->
+<!--  </div>-->
+</div>

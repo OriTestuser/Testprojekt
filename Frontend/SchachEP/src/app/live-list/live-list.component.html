@@ -1,0 +1,11 @@
+<button routerLink="/mainLobby" >
+  <h3>Back to Main Lobby</h3>
+</button>
+<br>
+<h3>Stream List</h3>
+<table>
+  <tr *ngFor="let list of streamList">
+  <td>Room name: {{list.chessGameName}}</td>
+    <button (click)="navigateToLive(list.chessGameId)" routerLink="/liveInterface" >Watch live</button>
+  </tr>
+</table>

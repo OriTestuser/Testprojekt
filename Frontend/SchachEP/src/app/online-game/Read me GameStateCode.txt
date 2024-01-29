@@ -1,0 +1,29 @@
+//Bei diesem Dokument handelt es sich um ein Memo,
+//das die Bedeutung der Variable „state“ im Online-Game-State aufzeichnet.
+//Verändern Sie es nicht!
+
+states code
+Starting game: -1
+The opponent has moved and your turn begins/the game starts with you: 0
+You chose a chess piece: 10
+You selected the target position for the chess piece to move to: 20
+You chose the king and castled the king's rook: 21
+You choose the pawn and the pawn reaches the bottom line: 25
+You have completed the move, send a message to the backend: 30
+The backend has responded to your move, and you are waiting for the opponent/FEN has been replied, and the opponent has not moved/You are the backend and are waiting for the opponent to act: 40
+You sent a message to the backend to ask if the game is over, and you are waiting for a reply: 41
+The backend replies that the game is not over, checks whether the opponent has moved, and requests FEN: 42
+Backend reply Game over, close game/You surrender: 99
+
+状态代码
+正在启动游戏：-1
+对手已经移动，你的回合开始/由你开始游戏：0
+你选择了一个棋子：10
+你选择了棋子移动的目标位置：20
+你选择了王并且选择了王车易位：21
+你选择了兵并且兵走到了底线：25
+你完成了移动，发送消息去后端：30
+后端回复了你的移动，你开始等待对手/已回复FEN，对手未移动/你为后手，正在等待对手行动：40
+你发送了消息去后端询问游戏是否结束，你在等待回复：41
+后端回复游戏未结束，检查对手是否移动，请求FEN：42
+后端回复游戏结束，关闭游戏/你投降了：99

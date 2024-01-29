@@ -1,0 +1,14 @@
+<button routerLink="/mainLobby" class="mainLobby_button">
+  <h3>Back to Main Lobby</h3>
+</button>
+<div>
+  <label for="chessGameName">Chess Game Name:</label>
+  <input type="text" id="chessGameName" [(ngModel)]="chessGameName" />
+</div>
+
+<div>
+  <label for="timer">Timer:</label>
+  <input type="number" id="timer" [(ngModel)]="timer" />
+</div>
+
+<button (click)="onSubmit()" [disabled]="!canStart()">Spiel erstellen</button>

@@ -1,0 +1,34 @@
+<button routerLink="/mainLobby" class="mainLobby_button">
+  <h3>Back to Main Lobby</h3>
+</button>
+<div>
+  <button (click)="showFriendList()">Freunde einladen</button>
+  <button (click)="showInviteForm()">Benutzer finden</button>
+</div>
+
+<div *ngIf="showFriendListFlag">
+  <h3>Freundesliste</h3>
+  <table class="friend-table">
+    <tr *ngFor="let friend of friendList">
+      <td class="id-column">ID:{{ friend.id }} </td>
+      <td>{{ friend.firstName }}</td>
+      <td>{{ friend.lastName }} </td>
+      <td>{{ friend.points }}Points</td>
+      <td><button (click)="inviteFriend(friend)">Einladen</button></td>
+    </tr>
+  </table>
+</div>
+
+<div *ngIf="showInviteFormFlag">
+  <h3>Benutzer finden</h3>
+  <label for="emailAddress">Email-Adresse:</label>
+  <input type="text" id="emailAddress" [(ngModel)]="searchEmail" />
+  <button (click)="searchUser()">Suchen</button>
+
+  <div *ngIf="searchedUserProfile.id != undefined">
+    <h4>Gefundener Benutzer</h4>
+    <p>Name: {{ searchedUserProfile.firstName }} {{ searchedUserProfile.lastName }}</p>
+    <p>Points: {{ searchedUserProfile.points }}</p>
+    <button (click)="inviteUser(searchedUserProfile)">Einladen</button>
+  </div>
+</div>

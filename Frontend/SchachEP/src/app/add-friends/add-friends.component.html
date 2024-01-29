@@ -1,0 +1,6 @@
+<button routerLink="/groupChat" class="button">
+  <h3>Back to Group Chat</h3>
+</button>
+<div *ngFor="let friend of friends">
+  {{friend.firstName}} {{friend.lastName}} <button (click)="addFriend(friend)" [disabled]="checkInGroup(friend)" >add to group</button>
+</div>

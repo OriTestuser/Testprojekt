@@ -1,0 +1,15 @@
+<button routerLink="/mainLobby" class="mainLobby_button">
+  <h3>Back to Main Lobby</h3>
+</button>
+<button  routerLink="/botGameSetting" class="button">
+  <h3>New Game</h3>
+</button>
+<table>
+  <tr *ngFor="let game of gameList">
+    <td>{{ game.chessGameName}}</td>
+    <td>{{ game.level }}</td>
+    <td>
+      <button (click)="joinGame(game)">Spielen</button>
+    </td>
+  </tr>
+</table>

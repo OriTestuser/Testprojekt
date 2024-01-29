@@ -1,0 +1,39 @@
+##TODO##
+#Auch aus dem Dockerarbeitspacket aber füm meine bedürfnisse angepasst
+
+version: "3"
+services:
+  angular:
+    container_name: angular
+    build: ./frontend/SchachEP # ort an dem es gespeichert wird
+    depends_on:
+      - spring-boot #ist abhängig von spring boot
+    ports:
+      - 4200:4200 #ports die angular nicht der erste port vom host
+    image: angular-arbeitspacket
+    restart: unless-stopped
+    environment:
+      API_URL: http://spring-boot:8080  # URL des Spring Boot-Servers
+    networks:
+      - docker-spring-angular #Kommunikation zwischen den Containern im selben Netzwerk.
+
+  spring-boot:
+    container_name: spring-boot
+    build: ./backend
+    ports:
+      - 8080:8080
+    image: spring-boot-arbeitspacket
+    environment:
+      spring.datasource.url: jdbc:h2:file:./data/testDB
+      spring.datasource.driverClassName: org.h2.Driver
+      spring.datasource.username: sa
+      spring.datasource.password: password
+      spring.h2.console.enabled: true
+    restart: unless-stopped
+    networks:
+      - docker-spring-angular
+
+
+
+networks:
+  docker-spring-angular:

@@ -1,0 +1,59 @@
+<h1>{{gameState}}</h1>
+
+<div class="your-userCard"><app-user-card
+  [firstName]="yourFirstName"
+  [lastName]="yourLastName"
+  [point]="yourPoint"
+  [color]="yourColor">
+</app-user-card></div>
+
+<div class="oppo-userCard"><app-user-card
+  [firstName]="oppoFirstName"
+  [lastName]="oppoLastName"
+  [point]="oppoPoint"
+  [color]="oppoColor">
+</app-user-card></div>
+
+<body>
+<div class="chess-board">
+  <div *ngFor="let row of board[0]; let i = index" class="chess-row">
+    <div *ngFor="let piece of row; let j = index" class="chess-cell">
+      <div class="chess-cell-content">
+        <img [src]="getChessCellBackground(i, j)" alt="board">
+        <app-piece
+          *ngIf="piece"
+          [type]="piece"
+          [position]="[i, j]"
+          [isSelected]="board[1][i][j]=='true'"
+          [canMove]="board[2][i][j]=='true'"
+        ></app-piece>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--<div *ngIf="!isMyColorWhite()" class="chess-board">-->
+<!--  <div *ngFor="let row of board[0].reverse(); let i = index" class="chess-row">-->
+<!--    <div *ngFor="let piece of row; let j = index" class="chess-cell">-->
+<!--      <div class="chess-cell-content">-->
+<!--        <img [src]="getChessCellBackground(i, j)" alt="board">-->
+<!--        <app-piece-->
+<!--          *ngIf="piece"-->
+<!--          [type]="piece"-->
+<!--          [position]="[7 - i, j]"-->
+<!--          [isSelected]="board[1][7 - i][j]=='true'"-->
+<!--          [canMove]="board[2][7 - i][j]=='true'"-->
+<!--        ></app-piece>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<button (click)="assistant()" class = "button"> Hilfe</button>
+<p>{{assistantMessage}}</p>
+
+<button (click)="startStreaming()">{{ streaming ? 'Now Streaming' : 'Start Streaming' }}</button>
+
+<button (click)="surrenderGame()" class="button"> Surrender </button>
+<button (click)="stopGame()" class="button"> Quit </button>
+</body>

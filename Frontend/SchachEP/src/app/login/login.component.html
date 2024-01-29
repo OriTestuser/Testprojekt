@@ -1,0 +1,54 @@
+<div style="display: flex; justify-content: center">
+  <div class="login-container">
+    <h1>{{title}}</h1>
+    <br>
+    <h2>Login</h2>
+    <form (ngSubmit)="onSubmit()" #userFrom="ngForm">
+      <label for="email">Email</label><br>
+      <input type="text"
+             class="form-control"
+             id="email"
+             name="email"
+             placeholder="Enter your email address"
+             [(ngModel)]="email"
+      >
+      <br>
+      <label for="password">Password</label><br>
+      <input type="password"
+             class="form-control"
+             id="password"
+             name="password"
+             placeholder="Enter your password"
+             [(ngModel)]="password"
+      >
+      <br>
+      <button type="submit"
+              class="btn btn-info"
+              [disabled]="!canClickLogin()">
+        <h3>{{ loginButtonText }}</h3>
+      </button>
+      <div class = signup >
+        <a routerLink="/register">Sign up</a>
+      </div>
+
+
+    </form>
+  </div>
+</div>
+
+<!--      <div class =mainpage>-->
+<!--        <a routerLink="/mainLobby">Main lobby</a>-->
+<!--&lt;!&ndash;        Only for Test&ndash;&gt;-->
+<!--      </div>-->
+<!--      <div class = TFA>-->
+<!--        <a routerLink="/twoFactorAuthor">Verfiy Code</a>-->
+<!--        &lt;!&ndash;        Only for Test&ndash;&gt;-->
+<!--      </div>-->
+<!--      <div class = friendList>-->
+<!--        <a routerLink="/friendList">FriendList</a>-->
+<!--        &lt;!&ndash;        Only for Test&ndash;&gt;-->
+<!--      </div>-->
+<!--      <div class = profileMain>-->
+<!--        <a routerLink="/profileMain">profileMain</a>-->
+<!--        &lt;!&ndash;        Only for Test&ndash;&gt;-->
+<!--      </div>-->

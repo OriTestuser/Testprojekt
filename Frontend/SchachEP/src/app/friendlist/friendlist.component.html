@@ -1,0 +1,22 @@
+<button routerLink="/profileMain" >
+    <h3>Back to Main Profile</h3>
+  </button>
+  <br>
+<h3> Friends</h3>
+  <table>
+  <tr *ngFor="let friend of friends">
+    <div *ngIf="userData.id==userFriendData.id || !userFriendData.privacy">
+    <td> Name: {{ friend.firstName }}{{friend.lastName}} </td>
+    <td> Points:  {{friend.points}}</td>
+    <td>
+    <button *ngIf="userData.id==userFriendData.id" (click)="createFriendChat(friend)" [routerLink]="['/friendChat']">Chat</button>
+    <button (click)="selectFriend(friend)" [routerLink]="['/profileMain']">Profile</button>
+
+      <button *ngIf="userData.id==userFriendData.id" (click)="deleteFriend(friend)">delete</button></td>
+    </div>
+  </tr>
+  <div *ngIf="userService.UserData.id == userService.CurrentUserData.id">
+    <button class="button" [routerLink]="['/friendRequest']" >Friend requests</button>
+  </div>
+    </table>
+

@@ -1,0 +1,12 @@
+<button routerLink="/mainLobby" >
+  <h3>Back to Main Lobby</h3>
+</button>
+<br>
+<h3> Leaderboard</h3>
+<table>
+  <tr *ngFor="let user of leaderboard">
+    <td> Name: {{ user.firstName }} {{user.lastName}} </td>
+    <td> Email: {{user.email}} </td>
+    <td> Points:  {{user.points}}</td>
+  </tr>
+</table>

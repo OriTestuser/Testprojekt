@@ -1,0 +1,15 @@
+<button routerLink="/friendList" class="friendList_button">
+  <h3>Back To Friendlist</h3>
+</button>
+<table>
+  <tr *ngFor="let user of requestUsers">
+    <td>{{ user.id }}</td>
+    <td>{{ user.firstName }}</td>
+    <td>{{ user.lastName }}</td>
+    <td>{{ user.email}}</td>
+    <td>
+      <button (click)="acceptOrDenyFriend(true, user.id)">Accept</button>
+      <button (click)="acceptOrDenyFriend(false, user.id)">Refuse</button>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,13 @@
+<button routerLink="/mainLobby" class="mainLobby_button">
+  <h3>Back to Main Lobby</h3>
+</button>
+<table>
+  <tr *ngFor="let opponent of opponentList">
+    <td>{{ opponent.user2?.firstName}}</td>
+    <td>{{ opponent.user2?.lastName}}</td>
+    <td>{{ opponent.user2?.points}}</td>
+    <td>
+      <button (click)="choose(opponent)">Auswählen</button>
+    </td>
+  </tr>
+</table>

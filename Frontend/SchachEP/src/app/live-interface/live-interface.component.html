@@ -1,0 +1,32 @@
+
+<div class="your-userCard"><app-user-card
+  [firstName]="firstName1"
+  [lastName]="lastName1"
+  [point]="point1"
+  [color]="color1">
+</app-user-card></div>
+
+<div class="oppo-userCard"><app-user-card
+  [firstName]="firstName2"
+  [lastName]="lastName2"
+  [point]="point2"
+  [color]="color2">
+</app-user-card></div>
+
+<body>
+<div class="chess-board">
+  <div *ngFor="let row of boardData[0]; let i = index" class="chess-row">
+    <div *ngFor="let piece of row; let j = index" class="chess-cell">
+      <div class="chess-cell-content">
+        <img [src]="getChessCellBackground(i, j)" alt="board">
+        <app-piece
+          *ngIf="piece"
+          [type]="piece"
+          [position]="[i, j]"
+        ></app-piece>
+      </div>
+    </div>
+  </div>
+</div>
+<button routerLink="/liveList" class="button"> Quit </button>
+</body>

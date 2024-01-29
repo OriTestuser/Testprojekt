@@ -1,0 +1,30 @@
+<button routerLink="/myClubs" class="button">
+  <h3>Back to myClubs</h3>
+</button>
+<div *ngFor="let msg of messagesWithUsernames;trackBy: track"  [ngClass]="{'message-left': msg.message.senderId !== userService.UserData.id, 'message-right': msg.message.senderId === userService.UserData.id}">
+  <div *ngIf="!msg.message.read &&msg.message.messageId&& msg.message.senderId === userService.UserData.id">
+    <input *ngIf="editModes[msg.message.messageId]" type="text" [(ngModel)]="changeMessage">
+    {{ msg.message.message }}
+    <button *ngIf="!editModes[msg.message.messageId]" (click)="editMessage(msg.message) ">Edit</button>
+    <button *ngIf="editModes[msg.message.messageId]" (click)="updateMessage(msg.message)">Save</button>
+    <button (click)="delete(msg.message)">Delete</button>
+  </div>
+  <div *ngIf="msg.message.read&&msg.message.senderId === userService.UserData.id">
+    {{ msg.message.message }}
+  </div>
+  <div *ngIf="msg.message.senderId!==userService.UserData.id">
+    {{msg.username}}: {{msg.message.message}}
+  </div>
+</div>
+<form (ngSubmit)="sendMessage()" >
+  <label for="message"></label><br>
+  <input type="text"
+         class="form-control"
+         id="message"
+         name="message"
+         [(ngModel)]="message"
+  >
+  <button type="submit"
+          class="btn btn-info"
+  >send</button>
+</form>

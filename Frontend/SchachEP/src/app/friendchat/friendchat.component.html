@@ -1,0 +1,30 @@
+<button routerLink="/friendList" (click)="resetFriendData()" >
+  <h3>Back to friendList</h3>
+</button>
+
+<div>Chat With {{userService.CurrentUserData.firstName}} {{userService.CurrentUserData.lastName}}</div>
+
+<div *ngFor="let msg of Messages" [ngClass]="{'message-left': msg.senderId !== userService.UserData.id, 'message-right': msg.senderId === userService.UserData.id}">
+  <div *ngIf="!msg.read &&msg.senderId==userService.UserData.id&&msg.messageId">
+    <input *ngIf="editModes[msg.messageId]" type="text" [(ngModel)]="changeMessage">
+    {{ msg.message }}
+    <button *ngIf="!editModes[msg.messageId]" (click)="editMessage(msg) ">Edit</button>
+    <button *ngIf="editModes[msg.messageId]" (click)="updateMessage(msg)">Save</button>
+    <button (click)="delete(msg)">Delete</button>
+  </div>
+  <div *ngIf="msg.read||msg.senderId!=userService.UserData.id">
+    {{ msg.message }}
+  </div>
+</div>
+<form (ngSubmit)="onSubmit()" #userFrom="ngForm">
+  <label for="message"></label><br>
+  <input type="text"
+         class="form-control"
+         id="message"
+         name="message"
+         [(ngModel)]="message"
+  >
+  <button type="submit"
+          class="btn btn-info"
+          >send</button>
+</form>

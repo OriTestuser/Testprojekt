@@ -1,0 +1,14 @@
+<button routerLink="/mainLobby" class="mainLobby_button">
+  <h3>Back to Main Lobby</h3>
+</button>
+<table>
+  <tr *ngFor="let game of gameList">
+    <td>{{ game.chessGameName}}</td>
+    <td>{{ game.timer }}</td>
+    <td>{{ game.user2?.firstName }}</td>
+    <td>{{ game.user2?.lastName}}</td>
+    <td>
+      <button (click)="joinGame(game)">Spielen</button>
+    </td>
+  </tr>
+</table>

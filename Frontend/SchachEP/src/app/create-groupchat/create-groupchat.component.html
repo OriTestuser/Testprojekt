@@ -1,0 +1,12 @@
+<button routerLink="/groupChatList" class="button">
+  <h3>Back to group chat list</h3>
+</button>
+<input type="text" [(ngModel)]="groupName"
+       placeholder="Enter your group name">
+<table>
+  <tr *ngFor="let friend of friends">
+      <td> Name: {{ friend.firstName }}{{friend.lastName}}
+     <input type="checkbox" [value]="friend.id" (change)="selectFriend(friend)">
+<!-- [value]used to bind data to the input box   -->
+    </td></tr></table>
+<button (click)="createGroupchat()">create</button>

@@ -1,0 +1,17 @@
+<button routerLink="/mainLobby" >
+  <h3>Back to Main lobby</h3>
+</button>
+<br>
+<input type="file" (change)="onFileSelected($event)">
+<h3>Imported PGN:</h3>
+<div>Event : {{ replayService.getGameName(importedPgn) }}</div>
+<div *ngIf="importedPgn">
+  <button (click)="uploadPGN()"> upload</button>
+</div>
+<table>
+  <div><h3>Replay:</h3></div>
+<tr *ngFor=" let pgn of listPgn">
+  <td>Event : {{replayService.getGameName(pgn)}}</td>
+  <button (click)="watchReplay(pgn)" routerLink="/replayBoard"> watch replay</button>
+</tr>
+</table>

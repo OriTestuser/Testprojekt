@@ -1,0 +1,96 @@
+<div *ngIf="currentUserProfile" xmlns="http://www.w3.org/1999/html">
+  <h2>User Information</h2>
+  <img *ngIf="userImage" [src]="userImage"
+       alt="Selected Image"
+       style="width: 100px;
+       height: auto;
+       margin-top: 10px;">
+  <div *ngIf="title >=3">
+    <h3>Schachexperte</h3>
+  </div>
+  <p>Name: {{currentUserProfile.firstName }} {{ currentUserProfile.lastName }}</p>
+  <p>Email: {{ currentUserProfile.email }}</p>
+  <p>Points:{{currentUserProfile.points}}</p>
+  <p>Birthdate: {{currentUserProfile.birthDate}}</p>
+  <!--  change profileimage and show profileimage-->
+  <div *ngIf="currentUserProfile.email !== userProfile.email">
+    <!--    Button doesn't show when user views themselves-->
+    <button [disabled]="isFriend || haveSendRequest"
+            (click)="sendFriendRequest()"
+            class="addFriend_button">Add Friend
+    </button>
+    <!--   Enable when not yet a friend-->
+  </div>
+  <div *ngIf="currentUserProfile.email == userProfile.email">
+  <h3>FriendList private</h3>
+  <input type="checkbox" [(ngModel)]="userProfile.privacy" (change)="onSubmitPrivacy()">
+  </div>
+  MyClubs:<div *ngFor="let club of clubs">
+   {{club.chessClubName}}
+  </div>
+  <button  routerLink="/friendList" class="friendList_button" [disabled]="currentUserProfile.privacy&&currentUserProfile.id!=userProfile.id"  >
+    <h3>Friendlist</h3>
+  </button>
+
+  <button routerLink="/mainLobby" class="mainLobby_button" (click)="resetUserProfile()">
+    <h3>Back to Main Lobby</h3>
+  </button>
+<!--  <div class="lastGames">-->
+<!--  <tr>-->
+<!--    <div *ngIf="lastChessGame">-->
+<!--      <div *ngFor="let pgn of lastGamesPgn">-->
+<!--      <td> Chessgame: {{replayService.getGameName(pgn)}}-->
+<!--&lt;!&ndash;        {{getResult(pgn)}}&ndash;&gt;-->
+<!--        {{getGameResultByWinnerId(pgn)}}-->
+<!--        <button (click)="download(pgn)">Download</button>-->
+<!--        <button (click)="watchReplay(pgn)" routerLink="/replayBoard">Replay</button>-->
+<!--      </td>-->
+<!--    </div></div>-->
+<!--    <div *ngIf="lastBotGamePgn">-->
+<!--      <div *ngFor="let pgn of lastBotGamesPgn">-->
+<!--    <td> Botgame: {{replayService.getGameName(pgn)}}-->
+<!--&lt;!&ndash;      {{getResult(pgn)}}&ndash;&gt;-->
+<!--      {{getBotGameResult(pgn)}}-->
+<!--      <button (click)="download(pgn)">Download</button>-->
+<!--      <button (click)="watchReplay(pgn)" routerLink="/replayBoard">Replay</button></td>-->
+<!--    </div></div>-->
+<!--  </tr>-->
+<!--  </div>-->
+  <div class="lastGames">
+    <table>
+      <tr>
+        <div *ngIf="lastChessGame">
+          <div *ngFor="let game of lastGamesWithChessGame">
+          <td> Chessgame: {{game.ChessGame.chessGameName}}
+            <br>
+            {{replayService.getPlayer1Name(game.pgn)}}({{replayService.getPlayer1Points(game.pgn)}}) - {{replayService.getPlayer2Name(game.pgn)}}({{replayService.getPlayer2Points(game.pgn)}})
+            <br>
+            {{game.ChessGame.winner?.firstName}} {{game.ChessGame.winner?.lastName}} hat gewonnen
+            <br>
+            <button (click)="download(game.pgn)">Download</button>
+            <button (click)="watchReplay(game.pgn)" routerLink="/replayBoard">Replay</button>
+          </td>
+        </div></div>
+        <div *ngIf="lastBotGamePgn">
+          <div *ngFor="let game of lastBotGamesPgnWithChessGame">
+        <td> Botgame: {{game.ChessBot.chessGameName}}
+          <div class="nowrap" *ngIf="game.ChessBot.level==1">game level: easy</div>
+          <div class="nowrap" *ngIf="game.ChessBot.level==2">game level: normal</div>
+            <div class="nowrap" *ngIf="game.ChessBot.level==3">game level: hard</div>
+          <div *ngIf="game.ChessBot.winner=='User'">
+            {{game.ChessBot.player?.firstName}} {{game.ChessBot.player?.lastName}} hat gewonnen
+          </div>
+          <div *ngIf="game.ChessBot.winner=='Bot'">
+            Bot hat gewonnen
+          </div>
+          <div *ngIf="game.ChessBot.winner=='draw'">
+            Draw
+          </div>
+          <button (click)="download(game.pgn)">Download</button>
+          <button (click)="watchReplay(game.pgn)" routerLink="/replayBoard">Replay</button></td>
+       </div></div>
+      </tr>
+    </table>
+  </div>
+
+</div>

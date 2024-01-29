@@ -1,0 +1,64 @@
+h1 {
+  color: rgb(255, 255, 255);
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+}
+h2 {
+  color: rgb(255, 255, 255);
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+h3 {
+  color: rgb(0, 0, 0);
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a:visited{
+  color: rgb(255, 156, 48);
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.login_button{
+  margin-top: 100px;
+  width: 200px;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+
+  color: rgb(255, 156, 48);
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+button:hover {
+  background-color: rgb(255, 136, 0);
+}
+/*The button turns orange when the mouse is moved over it*/
+
+.login_div {
+  position: relative;
+  top: 100px;
+  left: 350px;
+
+  width: 800px;
+  height: 600px;
+}
+
+.background-image {
+  background-image: url('../../src/assets/SEP_BACKGROUND.png');
+  background-size: cover;
+  width: 100%;
+  height: 720px;
+  /*Set the image to cover the entire background.*/
+}

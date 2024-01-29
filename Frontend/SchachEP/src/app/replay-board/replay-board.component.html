@@ -1,0 +1,29 @@
+<button routerLink="/mainLobby">back to Main Lobby</button>
+<div class="title"><h2>Event: {{replayService.getGameName(replayService.pgn)}}</h2>
+  <h2>{{getResult()}}</h2></div>
+<body>
+<div class="your-userCard"><app-replay-user-card
+  [Name]="Name1"
+[Points]="points1">
+</app-replay-user-card></div>
+<div class="oppo-userCard"><app-replay-user-card
+  [Name]="Name2"
+  [Points]="points2" >
+</app-replay-user-card></div>
+<div class="chess-board">
+  <div *ngFor="let row of boardData[0]; let i = index" class="chess-row">
+    <div *ngFor="let piece of row; let j = index" class="chess-cell">
+      <div class="chess-cell-content">
+        <img [src]="getChessCellBackground(i, j)" alt="board">
+        <app-piece
+          *ngIf="piece"
+          [type]="piece"
+          [position]="[i, j]"
+          [isSelected]="boardData[1][i][j]=='true'"
+        ></app-piece>
+      </div>
+    </div>
+  </div>
+</div>
+<button (click)="prevStep()" [disabled]="step==0">last step</button>
+<button (click)="nextStep()" [disabled]="step==maxStep-1">next step</button>

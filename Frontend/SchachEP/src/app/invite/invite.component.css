@@ -1,0 +1,20 @@
+.friend-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.friend-table td {
+  padding: 8px;
+  border-top: 1px solid #ddd;
+  /* Reset the font weight of other columns */
+  font-weight: normal;
+}
+.friend-table tr:last-child td {
+  border-bottom: 1px solid #ddd;
+  border-radius: 0 0 5px 5px;
+}
+
+.friend-table .id-column {
+  /* Make the text of the ID column bold */
+  font-weight: bold;
+}

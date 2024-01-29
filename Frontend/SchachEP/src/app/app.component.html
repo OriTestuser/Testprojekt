@@ -1,0 +1,18 @@
+<div class = 'background-image'>
+  <body>
+
+
+  <div class = "login_div">
+    <router-outlet>
+      <h1  *ngIf="!buttonClicked">{{title}}</h1>
+      <div *ngIf="!buttonClicked" style="display: flex; justify-content: center">
+        <button routerLink="/login" class = "login_button" (click)="hideTitle()">
+          <h3>Login</h3>
+        </button>
+      </div>
+    </router-outlet>
+
+  </div>
+  <app-sepbottom></app-sepbottom>
+  </body>
+</div>

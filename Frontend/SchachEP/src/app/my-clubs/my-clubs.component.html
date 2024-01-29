@@ -1,0 +1,7 @@
+<button routerLink="/mainLobby" class="mainLobby_button" >
+    <h3>Back to Main Lobby</h3>
+</button>
+<div *ngFor="let club of clubs">
+    {{club.chessClubName}} <button (click)="selectClub(club)" routerLink="/clubChat" >chat</button>
+</div>
+<button routerLink="/newClub" class="ui-corner-bottom">Erstellen</button>

@@ -1,0 +1,9 @@
+.lastGames {
+  position: absolute;
+  top: 100px;
+  right: 100px;
+  display: flex;
+}
+.nowrap {
+  white-space: nowrap!important;
+}

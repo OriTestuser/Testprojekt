@@ -1,0 +1,15 @@
+<button routerLink="/mainLobby" class="mainLobby_button">
+  <h3>Back to Main Lobby</h3>
+</button>
+<table>
+  <tr *ngFor="let invite of inviteList">
+    <td>{{ invite.chessGameName}}</td>
+    <td>{{ invite.timer }}</td>
+    <td>{{ invite.user1?.firstName }}</td>
+    <td>{{ invite.user1?.lastName}}</td>
+    <td>
+      <button (click)="acceptOrDenyInvite(true, invite.user1, invite.chessGameId)">Accept</button>
+      <button (click)="acceptOrDenyInvite(false, invite.user1, invite.chessGameId)">Refuse</button>
+    </td>
+  </tr>
+</table>

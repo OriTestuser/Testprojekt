@@ -1,0 +1,33 @@
+<div>
+  <p>Puzzle ID: {{ puzzleId }}</p>
+<!--  <p>FEN: {{ FEN }}</p>-->
+</div>
+
+<div class="your-userCard">
+  <h2>{{yourFirstName}} {{yourLastName}}</h2>
+</div>
+
+<body>
+<div class="chess-board">
+  <div *ngFor="let row of boardData; let i = index" class="chess-row">
+    <div *ngFor="let piece of row; let j = index" class="chess-cell">
+      <div class="chess-cell-content">
+        <img [src]="getChessCellBackground(i, j)" alt="board">
+        <app-puzzle-piece
+          *ngIf="piece"
+          [type]="piece"
+          [position]="[i, j]"
+          [isSelected]="i == selectPosition[0] && j == selectPosition[1]"
+          [canMove]="false"
+        ></app-puzzle-piece>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+
+<button routerLink="/puzzle" >Back</button>
+<!--<button (click)="clickShowMoves()">Show/Hide Answer</button>-->
+<!--<div *ngIf="showMoves">-->
+<!--  <p>Moves: {{ moves }}</p>-->
+<!--</div>-->

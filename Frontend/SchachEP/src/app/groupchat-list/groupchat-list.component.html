@@ -1,0 +1,9 @@
+<button routerLink="/mainLobby" class="button">
+  <h3>Main Lobby</h3>
+</button>
+<div *ngFor="let groupChat of groupChatList">
+  {{groupChat.groupName}} <button (click)="selectGroup(groupChat)" routerLink="/groupChat" >chat</button>
+</div>
+<button routerLink="/createGroupChat" class="button">
+  <h3>GroupChat erstellen</h3>
+</button>

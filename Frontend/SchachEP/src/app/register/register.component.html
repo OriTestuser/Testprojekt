@@ -1,0 +1,65 @@
+<div style="display: flex; justify-content: center">
+  <div class="login-container">
+    <h1>{{title}}</h1>
+    <br>
+  <h2>Register</h2>
+  <form (ngSubmit)="onSubmit()" #registerFrom="ngForm">
+    <label for="email">Email</label><br>
+    <input type="text"
+           class="form-control"
+           id="email"
+           name="email"
+           placeholder="Enter your email address"
+           [(ngModel)]="register.email"
+    >
+    <br>
+    <label for="password">Password</label><br>
+    <input type="text"
+           class="form-control"
+           id="password"
+           name="password"
+           placeholder="Enter your password"
+           [(ngModel)]="register.password"
+    >
+    <br>
+    <label for="firstName">Vorname</label><br>
+    <input type="text"
+           class="form-control"
+           id="firstName"
+           name="firstName"
+           placeholder="Enter your Firstname"
+           [(ngModel)]="register.firstName"
+    >
+    <br>
+    <label for="lastName">Nachname</label><br>
+    <input type="text"
+           class="form-control"
+           id="lastName"
+           name="lastName"
+           placeholder="Enter your Lastname"
+           [(ngModel)]="register.lastName"
+    ><br>
+    <label for="birthDate">Geburtstag</label><br>
+    <input type="date"
+           class="form-control"
+           id="birthDate"
+           name="birthDate"
+           placeholder="Enter your birthday"
+           [(ngModel)]="register.birthDate"
+    >
+    <br>
+
+    <label for="file">Select Profile Image:</label>
+    <input type="file" id="file" class="image" name="image" (change)="onFileSelected($event)" accept="image/jpeg, image/png, image/gif">
+    <img *ngIf="selectedImage" [src]="selectedImage" alt="Selected Image" style="width: 200px; height: auto; margin-top: 10px;">
+    <!-- Submit button -->
+    <button type="submit"
+            class="btn btn-info">
+      <h3>signup</h3>
+    </button>
+
+  </form>
+  </div>
+</div>
+
+

@@ -1,0 +1,15 @@
+<div class="chess-piece-container">
+  <img *ngIf="canMove"
+       [src]="'assets/chess-piece/Can_Move.png'"
+       alt="canMove"
+       class="selected-overlay"
+       (click)="onClick()">
+  <img *ngIf="isSelected"
+       [src]="'assets/chess-piece/On_Select.png'"
+       alt="Selected"
+       class="selected-overlay"
+       (click)="onClick()">
+  <img [src]="picLink"
+       alt="{{ type }}"
+       (click)="onClick()">
+</div>

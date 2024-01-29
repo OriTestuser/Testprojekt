@@ -1,0 +1,15 @@
+<h1>Schach Puzzle List</h1>
+<button routerLink="/mainLobby" >Back</button>
+<button routerLink="/puzzleUploader" >Import</button>
+
+<div *ngIf="puzzleList.length === 0">
+  <h2>Puzzle wurde noch nicht importiert.</h2>
+</div>
+
+<div *ngFor="let puzzle of puzzleList">
+  <div>
+    <div>Id: {{ puzzle[0] }}
+      <button (click)="startGame(puzzle)">Start</button>
+    </div>
+  </div>
+</div>

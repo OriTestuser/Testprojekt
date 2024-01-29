@@ -1,0 +1,21 @@
+<h3>You are playing chess against a computer player.</h3>
+<app-bot-game-timer [duration]=timer></app-bot-game-timer>
+<div class="userCard"><app-online-game-user-card
+  [userID]=1>
+</app-online-game-user-card></div>
+<body>
+<div class="chess-board">
+  <div *ngFor="let i of [0, 1, 2, 3, 4, 5, 6, 7]" class="chess-row">
+    <div *ngFor="let j of [0, 1, 2, 3, 4, 5, 6, 7]" class="chess-cell">
+      <div class="chess-cell-content">
+        <img [src]="getChessCellBackground(i, j)" alt="board">
+        <app-bot-game-piece
+          [position]="[i, j]"
+        ></app-bot-game-piece>
+      </div>
+    </div>
+  </div>
+</div>
+<button (click)="assistant()" class = "button"> Hilfe</button>
+<button (click)="stopGame()" class="button"> Quit </button>
+</body>

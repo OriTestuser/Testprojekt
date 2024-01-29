@@ -1,0 +1,48 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /*background-color: white;*/
+}
+.chessBoard {
+  margin-top: -200px;
+  display: flex;
+  flex-wrap: wrap;
+  /*background-color: white;*/
+}
+.your-userCard {
+  position: absolute;
+  top: 150px;
+  left: 0;
+  display: flex;
+}
+
+.oppo-userCard {
+  position: absolute;
+  top: 150px;
+  right: 0;
+  display: flex;
+}
+.chess-row {
+  display: flex;
+  margin-bottom: -4px;
+}
+
+.chess-cell {
+  position: relative;
+}
+
+.chess-cell-content {
+  position: relative;
+}
+
+img {
+  max-width: 100%;
+}
+app-piece {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
